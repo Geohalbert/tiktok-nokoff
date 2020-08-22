@@ -1,10 +1,13 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { screen } from "../styles/screen";
 
 export default function Profile() {
   return (
-    <View>
-      <Text>Profile</Text>
+    <View style={screen.container}>
+      <Text style={screen.text}>Profile</Text>
     </View>
   );
 }
+
+StyleSheet.create(screen);
