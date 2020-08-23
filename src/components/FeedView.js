@@ -3,6 +3,7 @@ import { Dimensions, StyleSheet, View } from "react-native";
 
 import { Video } from "expo-av";
 import FeedDetails from "./FeedDetails";
+import Sidebar from "./Sidebar";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -21,6 +22,7 @@ const FeedView = props => {
           height: "100%"
         }}
       />
+      <Sidebar video={video} play={play} />
       <FeedDetails video={video} />
     </View>
   );
