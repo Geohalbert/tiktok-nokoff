@@ -1,14 +1,11 @@
 export const screen = {
   container: {
-    alignItems: "center",
-    backgroundColor: "#000",
-    flex: 1,
-    justifyContent: "center",
-    paddingBottom: 40,
-    paddingTop: 15
+    flex: 1
   },
   text: {
     color: "blue",
+    justifyContent: "center",
+    alignItems: "center",
     fontSize: 16,
     fontWeight: "bold"
   }
