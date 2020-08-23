@@ -2,6 +2,7 @@ import React from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 
 import { Video } from "expo-av";
+import FeedDetails from "./FeedDetails";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -20,6 +21,7 @@ const FeedView = props => {
           height: "100%"
         }}
       />
+      <FeedDetails video={video} />
     </View>
   );
 };
