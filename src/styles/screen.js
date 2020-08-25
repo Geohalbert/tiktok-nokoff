@@ -1,6 +1,10 @@
 export const screen = {
   container: {
-    flex: 1
+    backgroundColor: "orange",
+    position: "absolute",
+    // height: height,
+    // width: width,
+    zIndex: -1
   },
   text: {
     color: "blue",
