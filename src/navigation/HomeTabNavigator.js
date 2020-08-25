@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { StatusBar, Platform } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -12,8 +14,15 @@ const Tab = createBottomTabNavigator();
 
 export default function HomeTabNavigator() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
+    <Tab.Navigator initialRouteName="Home">
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarLabel: "Home",
+          tabBarIcon: () => <FontAwesome name="home" size={24} />
+        }}
+      />
       <Tab.Screen name="Discover" component={DiscoverScreen} />
       <Tab.Screen name="Live" component={CameraScreen} />
       <Tab.Screen name="Inbox" component={InboxScreen} />
