@@ -34,39 +34,40 @@ export default function FeedHeader(props) {
 
   return (
     <View style={styles.container}>
-      <View>{buttons}</View>
+      <View style={styles.buttons}>{buttons}</View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  buttonText: {
-    color: "#fff",
-    fontWeight: "bold",
-    paddingLeft: 10,
-    paddingRight: 10,
-    textAlign: "center"
-  },
-  container: {
+  buttons: {
     alignItems: "center",
     alignSelf: "center",
+    flex: 1,
     flexDirection: "row",
+    justifyContent: "center"
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+    opacity: 0.5,
+    padding: 5
+  },
+  container: {
+    alignSelf: "center",
     height: "10%",
     marginTop: "5%",
     position: "absolute",
-    top: 30,
+    width: 300,
     zIndex: 10
   },
   selectedText: {
-    color: "#fff",
     fontSize: 20,
-    fontWeight: "bold",
-    padding: 5
+    opacity: 1
   },
   unselectedText: {
-    color: "#fff",
-    fontSize: 15,
-    fontWeight: "normal",
-    padding: 5
+    fontSize: 18,
+    opacity: 0.5
   }
 });

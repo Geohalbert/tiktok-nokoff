@@ -3,12 +3,21 @@ import { Dimensions, StyleSheet, View } from "react-native";
 
 import ViewPager from "@react-native-community/viewpager";
 import FeedScreen from "../components/FeedScreen";
+import FeedHeader from "../components/FeedHeader";
+
+import { headerOptions } from "../constants";
 import db from "../../db.json";
 const { height, width } = Dimensions.get("window");
 const FeedContainer = () => {
   const [active, setActive] = useState(0);
+  const [tab, setTab] = useState(1);
   return (
     <View style={styles.container}>
+      <FeedHeader
+        options={headerOptions}
+        selectedValue={tab}
+        onSelect={setTab}
+      />
       <ViewPager
         onPageSelected={e => {
           setActive(e.nativeEvent.position);
