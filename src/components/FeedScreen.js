@@ -15,10 +15,7 @@ function FeedScreen({ video, play }) {
         isMuted={false}
         resizeMode="cover"
         shouldPlay={play}
-        style={{
-          width: "100%",
-          height: "100%"
-        }}
+        style={styles.video}
       />
       <Sidebar video={video} />
       <FeedDetails video={video} />
@@ -28,18 +25,16 @@ function FeedScreen({ video, play }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "transparent",
-    position: "absolute",
-    flex: 0,
-    height: height,
-    width: width,
-    zIndex: 0
-  },
-  modal: {
     flex: 1,
-    zIndex: 40,
-    height: height,
-    width: width
+    position: "absolute",
+    zIndex: -1
+  },
+  video: {
+    backgroundColor: "#fff",
+    height,
+    position: "absolute",
+    width,
+    zIndex: -1
   }
 });
 
