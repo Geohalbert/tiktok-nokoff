@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Dimensions } from "react-native";
 
 import ViewPager from "@react-native-community/viewpager";
 
 import FeedHeader from "../components/FeedHeader";
 import FeedView from "../components/FeedView";
-
 import db from "../../db.json";
 import { headerOptions } from "../constants";
-import { screen } from "../styles/screen";
-
+const { height, width } = Dimensions.get("window");
 export default function Home() {
   const [tab, setTab] = useState(1);
   const [active, setActive] = useState(0);
 
   return (
-    <View style={screen.container}>
+    <View style={styles.container}>
       <FeedHeader
         options={headerOptions}
         selectedValue={tab}
@@ -31,7 +29,7 @@ export default function Home() {
       >
         {db.videos.map(item => (
           <View key={item.id}>
-            <FeedView video={item} play={item.id === active} />
+            <FeedView video={item} play={Number(item.id) === active} />
           </View>
         ))}
       </ViewPager>
@@ -39,4 +37,11 @@ export default function Home() {
   );
 }
 
-StyleSheet.create(screen);
+const styles = StyleSheet.create({
+  container: {
+    width,
+    height,
+    flex: 1,
+    backgroundColor: "transparent"
+  }
+});

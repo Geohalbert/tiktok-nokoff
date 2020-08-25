@@ -15,7 +15,7 @@ export const header = {
   },
   container: {
     width: "100%",
-    zIndex: 10
+    zIndex: 1
   },
   selectedText: {
     color: "#fff",

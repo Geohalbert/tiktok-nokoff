@@ -2,28 +2,22 @@ import React from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 import { Colors } from "../styles/colors";
 
-const width = Dimensions.get("window").width;
-const height = Dimensions.get("window").height;
-
-const FeedDetails = props => {
-  const { video } = props;
-
+const { height, width } = Dimensions.get("window");
+const FeedDetails = ({ video }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.details}>
-        <Text style={styles.user}>{video.user}</Text>
-        <View style={styles.info}>
-          <Text style={styles.title}>{video.title}</Text>
-          <View style={styles.tags}>
-            {video.tags.map((tag, index) => (
-              <View key={"tag" + index}>
-                <Text style={styles.tagText}>{tag}</Text>
-              </View>
-            ))}
-          </View>
+      <Text style={styles.user}>{video.user}</Text>
+      <View style={styles.info}>
+        <Text style={styles.title}>{video.title}</Text>
+        <View style={styles.tags}>
+          {video.tags.map((tag, index) => (
+            <Text key={"tag" + index} style={styles.tagText}>
+              {tag}
+            </Text>
+          ))}
         </View>
-        <Text style={styles.music}>{video.description}</Text>
       </View>
+      <Text style={styles.music}>{video.description}</Text>
     </View>
   );
 };
@@ -31,20 +25,12 @@ const FeedDetails = props => {
 //styling is garbage, but it works for now
 const styles = StyleSheet.create({
   container: {
-    height: height,
     position: "absolute",
-    width: width,
-    zIndex: 1
-  },
-  details: {
-    alignItems: "stretch",
-    color: Colors.white,
-    flex: 1,
+    padding: 10,
+    width: "60%",
     flexDirection: "column",
-    justifyContent: "flex-end",
-    marginBottom: 100,
-    marginHorizontal: 20,
-    width: width / (3 / 2)
+    bottom: 90,
+    zIndex: 11
   },
   info: {
     color: Colors.white,
@@ -54,9 +40,12 @@ const styles = StyleSheet.create({
     color: Colors.white
   },
   tags: {
+    fontSize: 18,
+    fontWeight: "bold",
+    paddingTop: 5,
     color: Colors.white,
     flexDirection: "row",
-    marginVertical: 5
+    flexWrap: "wrap"
   },
   tagText: {
     color: Colors.white,
@@ -67,10 +56,10 @@ const styles = StyleSheet.create({
     color: Colors.white
   },
   user: {
-    color: Colors.white,
-    fontSize: 15,
+    fontSize: 18,
     fontWeight: "bold",
-    marginVertical: 5
+    paddingTop: 10,
+    color: Colors.white
   }
 });
 

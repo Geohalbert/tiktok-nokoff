@@ -4,12 +4,12 @@ import { Dimensions, StyleSheet, View } from "react-native";
 import { Video } from "expo-av";
 import FeedDetails from "./FeedDetails";
 import Sidebar from "./Sidebar";
+import BottomModal from "../Containers/BottomModal";
 
-const width = Dimensions.get("window").width;
-const height = Dimensions.get("window").height;
-const FeedView = props => {
-  const { play, video } = props;
-
+import useModal from "../utils/useModal";
+const { height, width } = Dimensions.get("window");
+const FeedView = ({ play, video }) => {
+  const { isShowing, toggle } = useModal();
   return (
     <View style={styles.container}>
       <Video
@@ -22,19 +22,33 @@ const FeedView = props => {
           height: "100%"
         }}
       />
-      <Sidebar video={video} play={play} />
+      <Sidebar video={video} toggle={toggle} />
       <FeedDetails video={video} />
+      <View style={styles.modal}>
+        <BottomModal
+          isShowing={isShowing}
+          hide={toggle}
+          comments={video.comments}
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    backgroundColor: "transparent",
     position: "absolute",
+    flex: 1,
     height: height,
     width: width,
-    zIndex: -1
+    zIndex: 0
+  },
+  modal: {
+    flex: 1,
+    zIndex: 40,
+    height: height,
+    width: width
   }
 });
 

@@ -1,7 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { screen } from "../styles/screen";
-
+import { StyleSheet, Text, View, Dimensions } from "react-native";
+const { height, width } = Dimensions.get("window");
 export default function Inbox() {
   return (
     <View style={styles.container}>

@@ -1,7 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { screen } from "../styles/screen";
-
+import { StyleSheet, Text, View, Dimensions } from "react-native";
+const { height, width } = Dimensions.get("window");
 export default function Profile() {
   return (
     <View style={styles.container}>
@@ -13,16 +12,16 @@ export default function Profile() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "orange",
+    height,
     position: "absolute",
-    height: height,
-    width: width,
+    width,
     zIndex: -1
   },
   text: {
-    color: "blue",
-    justifyContent: "center",
     alignItems: "center",
+    color: "blue",
     fontSize: 16,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    justifyContent: "center"
   }
 });
