@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Dimensions
-} from "react-native";
-const { height, width } = Dimensions.get("window");
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 export default function FeedHeader(props) {
   const { onSelect, options, selectedValue } = props;
 
@@ -47,16 +40,22 @@ export default function FeedHeader(props) {
 }
 
 const styles = StyleSheet.create({
+  buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
+    paddingLeft: 10,
+    paddingRight: 10,
+    textAlign: "center"
+  },
   container: {
-    width: width,
-    height: height / 8,
-    flexDirection: "row",
-    position: "absolute",
-    alignSelf: "center",
-    justifyContent: "space-between",
-    zIndex: 10,
     alignItems: "center",
-    marginTop: "5%"
+    alignSelf: "center",
+    flexDirection: "row",
+    height: "10%",
+    marginTop: "5%",
+    position: "absolute",
+    top: 30,
+    zIndex: 10
   },
   selectedText: {
     color: "#fff",
@@ -69,12 +68,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "normal",
     padding: 5
-  },
-  buttonText: {
-    color: "#fff",
-    fontWeight: "bold",
-    paddingLeft: 10,
-    paddingRight: 10,
-    textAlign: "center"
   }
 });

@@ -3,7 +3,6 @@ import { Dimensions, StyleSheet, View } from "react-native";
 
 import ViewPager from "@react-native-community/viewpager";
 import FeedScreen from "../components/FeedScreen";
-
 import db from "../../db.json";
 const { height, width } = Dimensions.get("window");
 const FeedContainer = () => {
@@ -31,9 +30,9 @@ const FeedContainer = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "transparent",
-    position: "absolute",
     flex: 1,
     height: height,
+    position: "absolute",
     width: width,
     zIndex: 0
   }
