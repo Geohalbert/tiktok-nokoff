@@ -38,12 +38,8 @@ const FeedContainer = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "transparent",
-    flex: 1,
-    height: height,
-    position: "absolute",
-    width: width,
-    zIndex: 0
+    backgroundColor: "black",
+    flex: 1
   }
 });
 
