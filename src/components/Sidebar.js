@@ -9,79 +9,49 @@ import {
   Button
 } from "react-native";
 import { Colors } from "../styles/colors";
-import { FontAwesome } from "@expo/vector-icons";
+import TouchableIcon from "./TouchableIcon";
 
-const { height, width } = Dimensions.get("window");
-export default function Sidebar({ video, toggle }) {
+// export default function Sidebar({ video, toggle, modalContent }) {
+export default function Sidebar({ video }) {
   return (
-    <View styles={styles.container}>
-      <View style={styles.column}>
-        <TouchableOpacity style={styles.sidebarButton}>
-          <FontAwesome
-            style={styles.fontAwe}
-            name="heart"
-            size={35}
-            color={Colors.white}
-          />
-          <Text style={styles.text}>{video.likes}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.sidebarButton} onPress={toggle}>
-          <FontAwesome
-            style={styles.fontAwe}
-            name="comment"
-            size={35}
-            color={Colors.white}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.sidebarButton}>
-          <FontAwesome
-            style={styles.fontAwe}
-            name="share"
-            size={35}
-            color={Colors.white}
-          />
-          <Text style={styles.text}>Share</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.sidebarButton}>
-          <Image
-            style={styles.image}
-            source={{
-              uri:
-                "https://avatars0.githubusercontent.com/u/30065225?s=400&u=0aaf41155e41dc380b0871dae665f30f5bf0fc5a&v=4"
-            }}
-          />
-        </TouchableOpacity>
-      </View>
+    <View style={styles.container}>
+      <TouchableIcon iconName={"heart"} iconText={video.likes} onPress={null} />
+      {/* <TouchableIcon iconName={"comment"} iconText={null} onPress={toggle} /> */}
+      <TouchableIcon iconName={"comment"} iconText={null} onPress={null} />
+      <TouchableIcon iconName={"share"} iconText={"Share"} onPress={null} />
+      <TouchableOpacity style={styles.touchableIcon}>
+        <Image
+          style={styles.image}
+          source={{
+            uri:
+              "https://avatars0.githubusercontent.com/u/30065225?s=400&u=0aaf41155e41dc380b0871dae665f30f5bf0fc5a&v=4"
+          }}
+        />
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  fontAwe: { alignSelf: "center" },
   container: {
-    flexDirection: "column",
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "blue",
+    alignItems: "center",
     position: "absolute",
-    height: height,
-    width: width,
-    zIndex: 5
+    flexDirection: "column",
+    justifyContent: "center",
+    flex: 1,
+    paddingRight: 0,
+    paddingTop: 20,
+    zIndex: 10,
+    bottom: 10,
+    right: 10
   },
   image: {
-    borderRadius: 30,
+    borderRadius: 20,
     height: 35,
     width: 35
   },
-  sidebarButton: {
-    backgroundColor: "brown",
+  touchableIcon: {
     flexDirection: "column",
-    height: 60,
-    width: 60,
-    zIndex: 12
-  },
-  text: {
-    color: Colors.white,
-    padding: 5
+    paddingTop: 10
   }
 });
